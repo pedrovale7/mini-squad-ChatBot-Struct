@@ -1,2 +1,8 @@
 # mini-squad-ChatBot-Struct
-O foco desse mini squad vai ser de Inteligência Artificial mais especificamente ChatBots e como conseguiriamos implementar no portifólio da Empresa Junior - Struct
+Integrantes:
+Pedro Vale - Tech Lead \\
+
+
+## Ideia Inicial : Construir um Chatbot focado em Documentações Técnicas
+- Chat bot com arquitetura RAG para documentos
+  - Benefícios de usar o RAG: (Precisão elevada, Flexibilidade sobre adições de novos documentos e Escalabilidade)
