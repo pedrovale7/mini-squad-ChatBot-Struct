@@ -1,0 +1,6 @@
+#
+langchain-community
+
+# Leitura dos Arquivos
+pypdf
+unstructured[docx]
