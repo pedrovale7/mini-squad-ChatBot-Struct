@@ -1,6 +1,11 @@
-#
+# Orquestrador
 langchain-community
+langchain-chroma
 
 # Leitura dos Arquivos
 pypdf
 unstructured[docx]
+
+# Embedding & LLM provider
+langchain-huggingface
+langchain-groq
