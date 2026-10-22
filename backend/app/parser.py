@@ -1,5 +1,5 @@
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.document_loaders import UnstructuredWordDocumentLoader
+from langchain_community.document_loaders import Docx2txtLoader
 from langchain_community.document_loaders import CSVLoader
 import re
 
@@ -7,7 +7,7 @@ def parse_document(path:str , mode:str) -> list[str]:
 
     loaders = {
         "pdf": PyPDFLoader,
-        "docs": UnstructuredWordDocumentLoader,
+        "docs": Docx2txtLoader,
         "csv": CSVLoader,
     }
 
@@ -15,13 +15,12 @@ def parse_document(path:str , mode:str) -> list[str]:
         raise ValueError(f"Modo {mode} Inválido: Escolha entre pdf, docs, csv")
     
     try:
-        documents = loaders[mode](path).load()[0]
+        documents = loaders[mode](path).load()
 
-        doc_format= "\n".join(documents.page_content.split())
-        doc_format = re.sub(r"(?<!\n)\n(?!\n)", " ", doc_format)
-        doc_format = re.sub(r"[ \t]+", " ", doc_format)
-        
-        return doc_format
+        for doc in documents:
+            doc.page_content = re.sub(r'\s+', ' ', doc.page_content).strip()
+
+        return documents
 
     except Exception as e: 
         raise RuntimeError(f"Erro: {e}")
