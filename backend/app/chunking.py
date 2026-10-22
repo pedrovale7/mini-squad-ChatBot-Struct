@@ -10,8 +10,5 @@ def chunking(text: str) -> list[str]:
     )
 
     chunks = splitter.split_text(text)
-    print(chunks)
-    print([len(chunk) for chunk in chunks])
 
-text = parse_document(path="./backend/data/30FORMASPARADETONARNOCONTORNODEOBJEÇÃO.docx", mode="docs")
-chunking(text)
+    return chunks
