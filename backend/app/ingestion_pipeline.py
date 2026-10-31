@@ -16,3 +16,14 @@ def get_retriever(embd_model: str, k: int = 4):
 
 
 
+# pega o pdf da wiki para teste
+if __name__ == "__main__":
+    # Caminho relativo para o PDF na pasta Wiki 
+    caminho_pdf = "Wiki/Período 3.pdf" 
+    
+    # um modelo qualquer que aceita portuges
+    modelo_embedding = "intfloat/multilingual-e5-large" 
+    
+    print(f"A processar o documento: {caminho_pdf}")
+    ingestion_flow(doc_path=caminho_pdf, doc_mode="pdf", embd_model=modelo_embedding)
+    print("Ingestão concluída e banco vetorial gerado com sucesso!")
