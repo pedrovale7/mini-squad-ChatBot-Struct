@@ -1,10 +1,7 @@
 from langchain_chroma import Chroma
 from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-embd_key = os.getenv("EMBEDDING_KEY")
+
 DB_DIR = "./backend/chroma_db"
 
 def build_vector_store(chunking_list: list, embd_model: str):
