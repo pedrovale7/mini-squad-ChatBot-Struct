@@ -14,5 +14,3 @@ def get_retriever(embd_model: str, k: int = 4):
     return vector_db.as_retriever(search_type='similarity',
                                   search_kwargs={"k": k})
 
-
-
