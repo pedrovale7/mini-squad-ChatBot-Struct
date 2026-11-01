@@ -1,7 +1,11 @@
 # mini-squad-ChatBot-Struct
 
-Integrantes:
-Pedro Vale - Tech Lead \\
+## Integrantes:
+
+- Pedro Vale - Tech Lead
+- Gabriel de Castro
+- Rafael Schetinger
+- Henrique Gomes
 
 ## Tema : Chatbot focado em Documentações Técnicas das Diretorias
 
@@ -69,47 +73,41 @@ source .venv/bin/activate  # Linux/macOS
 
 ```bash
 # Versão rápida (recomendada)
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 
 # Ou com uv (se instalou uv)
-uv pip install -r requirements.txt
+uv pip install -r backend/requirements.txt
 ```
 
 ⏳ **Vai levar 1-3 minutos**
 
 ---
 
-### 4. Configurar a Chave da API
+### 4. Configurar a chave da API
 
-- Crie um arquivo .env igual ao .env.example
-
-```bash
-## Windows:
-copy .env.example .env
-## Linux:
-cp .env.example .env
-```
-
-- Configure sua chave :
-
-```python
-# Mude isto:
-OPENAI_API_KEY=sua-chave-api
-```
-
-### Rotina Diária
-
-**Toda vez que abrir seu projeto:**
+- Crie o arquivo `backend/.env` e informe a chave da Groq:
 
 ```bash
-# 1. Ativar ambiente
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
-
-# 2. Baixar as novas dependências
-pip install -r requirements.txt
-uv pip install -r requirements.txt # Quem for usar o uv
-
+API_KEY=sua-chave-api
 ```
+
+### 5. Indexar os documentos
+
+- Adicione seus documentos em /data.
+- Execute este passo uma vez inicialmente e novamente sempre que adicionar documentos novos. Os formatos suportados são `.pdf`, `.docx` e `.csv`.
+
+```bash
+python backend/app/app.py ingest ./backend/data/doc1.docx ./backend/data/doc2.pdf
+```
+
+### 6. Iniciar o chatbot
+
+Após indexar os documentos, inicie o chat:
+
+```bash
+python backend/app/app.py chat
+```
+
+Para encerrar o chat, digite `sair`.
 
 ---
